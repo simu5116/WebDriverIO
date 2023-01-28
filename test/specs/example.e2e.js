@@ -3,7 +3,7 @@ describe('E2E Commerce Automation',async()=>
     it('First TC', async()=>
     {
        await browser.url("https://rahulshettyacademy.com/loginpagePractise/")
-       console.log(browser.getTitle())
+        console.log(await browser.getTitle())
 
        //Javascri[t is asynchronous and it will not go in sequence]
        //in Async , every step will return a promise.
@@ -28,7 +28,19 @@ describe('E2E Commerce Automation',async()=>
         timeoutMsg: "Error Message is not showing up"
        }
        )
-        console.log((await $('.alert-danger')).getText())
+       const errortext=await $('.alert-danger').getText();
+        console.log("demo---->"+errortext)
+        //wait until checkbox is displayed after signing in
+        await (await $(".btn-primary")).waitForExist();
+        await expect(browser).toHaveUrlContaining("shop");
+        //expect you can have on browser, you can have on locators also
+        await expect(browser).toHaveTitle("ProtoCommerce");
+
+        //to run testcases in firefox, or microsoft edge, install selenium standalone service in package.json then in wdio.conf.js modify
+        //services: [
+       // ['selenium-standalone', { drivers: { firefox: '0.29.1', chrome: true, chromiumedge: 'latest' } }]
+       // ],
+       //then change browsername in capabilities
 
     })
 })
