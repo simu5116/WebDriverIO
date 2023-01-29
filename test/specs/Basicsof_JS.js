@@ -15,3 +15,5 @@ let mappedarray=evennumbers.map(score=>score*3)//performs operation on every ele
 
 //scope of var keyword is global or function level
 //scope of let keyword is global level or block level
+
+

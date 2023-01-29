@@ -23,7 +23,7 @@ exports.config = {
     // will be called from there.
     //
     specs: [
-        './test/specs/**/Uicontrols.js'
+        './test/specs/**/Windows_and_frames.js'
     ],
     // Patterns to exclude.
     exclude: [
