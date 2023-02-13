@@ -22,8 +22,18 @@ exports.config = {
     // then the current working directory is where your `package.json` resides, so `wdio`
     // will be called from there.
     //
+    suites:
+    {
+        //==========================
+        //If you want to filter entire spec file like this file belongs to debit card functionality or credit card functioanlity
+        debitCard:['test/specs/LoginPage.js','test/specs/example.e2e.js'],
+        creditCard:['test/specs/Uicontrols.js','test/specs/Windows_and_Frames.js'],
+        //for running you can run with command 
+        //npx wdio run ./wdio.conf.js --suite debitCard
+
+    },
     specs: [
-        './test/specs/**/LoginPage.js'
+        './test/specs/**/*.js'
     ],
     // Patterns to exclude.
     exclude: [
@@ -46,24 +56,58 @@ exports.config = {
     // from the same test should run tests.
     //
     maxInstances: 10,
+    //=================it can run all specs file in parallel
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://saucelabs.com/platform/platform-configurator
     //
-    capabilities: [{
+    capabilities: [
+        {
     
         // maxInstances can get overwritten per capability. So if you have an in-house Selenium
         // grid with only 5 firefox instances available you can make sure that not more than
         // 5 instances get started at a time.
+        //how many max instances chrome can open
         maxInstances: 5,
         //
         browserName: 'chrome',
-        acceptInsecureCerts: true
+        acceptInsecureCerts: true,
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
         // excludeDriverLogs: ['bugreport', 'server'],
+        //run in headless mode
+        'goog:chromeOptions': {
+            // to run chrome headless the following flags are required
+            // (see https://developers.google.com/web/updates/2017/04/headless-chrome)
+             args: ['--headless', '--disable-gpu'],
+            }
+
+    },
+    {
+        //=========
+        //this is firefox capabilities, you can also choose which specs file to run in firefox
+        //====================
+        // maxInstances can get overwritten per capability. So if you have an in house Selenium
+        // grid with only 5 firefox instance available you can make sure that not more than
+        // 5 instance gets started at a time.
+        maxInstances: 5,
+        browserName: 'firefox',
+        specs: [
+            'test/ffOnly/*'
+        ],
+        'moz:firefoxOptions': {
+          // flag to activate Firefox headless mode (see https://github.com/mozilla/geckodriver/blob/master/README.md#firefox-capabilities for more details about moz:firefoxOptions)
+          // args: ['-headless']
+        },
+        // If outputDir is provided WebdriverIO can capture driver session logs
+        // it is possible to configure which logTypes to exclude.
+        // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
+        excludeDriverLogs: ['bugreport', 'server'],
+        //
+        // Parameter to ignore some or all Puppeteer default arguments
+        // ignoreDefaultArgs: ['-foreground'], // set value to true to ignore all default arguments
     }],
     //
     // ===================
@@ -91,12 +135,13 @@ exports.config = {
     // If you only want to run your tests until a specific amount of tests have failed use
     // bail (default is 0 - don't bail, run all tests).
     bail: 0,
+    //suppose bail:3, whenever 3 failures are encountered during running of your testcases, execution will stop
     //
     // Set a base URL in order to shorten url command calls. If your `url` parameter starts
     // with `/`, the base url gets prepended, not including the path portion of your baseUrl.
     // If your `url` parameter starts without a scheme or `/` (like `some/path`), the base url
     // gets prepended directly.
-    baseUrl: 'http://localhost',
+    baseUrl: 'https://rahulshettyacademy.com',
     //
     // Default timeout for all waitFor* commands.
     waitforTimeout: 10000,

@@ -12,6 +12,6 @@
         "**/*.json",
         "node_modules/@wdio/sync",
         "node_modules/@Wdio/mocha-framework"
-        ]
+,       "wdio.uat.conf.js"        ]
     
 }

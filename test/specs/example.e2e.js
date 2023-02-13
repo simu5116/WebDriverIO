@@ -1,8 +1,8 @@
 describe('E2E Commerce Automation',async()=>
 {
-    it('First TC', async()=>
+    it('First TC-Smoke', async()=>
     {
-       await browser.url("https://rahulshettyacademy.com/loginpagePractise/")
+       await browser.url("/loginpagePractise/")
         console.log(await browser.getTitle())
 
        //Javascri[t is asynchronous and it will not go in sequence]

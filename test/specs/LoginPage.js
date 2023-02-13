@@ -9,9 +9,9 @@ describe('E2E Commerce Automation',async()=>
 {
 
     credentials.forEach(({username,password})=>{
-    xit('Login Page Fail',async()=>
+    it('Login Page Fail-Smoke',async()=>
     {
-        await browser.url("https://rahulshettyacademy.com/loginpagePractise/")
+        await browser.url("/loginpagePractise/")
         await loginPage.Login(username,password)
         
     
@@ -25,11 +25,11 @@ describe('E2E Commerce Automation',async()=>
         console.log("demo---->"+errortext)
     })
     e2ecredentials.forEach(({Products})=>{
-    it('End to End Test',async()=>
+    it('End to End Test-Smoke',async()=>
     {
 
        // const Products = ['iphone X','Blackberry']
-        await browser.url("https://rahulshettyacademy.com/loginpagePractise/")
+        await browser.url("/loginpagePractise/")
         await loginPage.Login(username,password)
         await (await shopPage.checkout).waitForDisplayed()
         await shopPage.addProductsToCart(Products)
