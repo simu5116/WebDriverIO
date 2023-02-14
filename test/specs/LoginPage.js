@@ -11,6 +11,10 @@ describe('E2E Commerce Automation',async()=>
     credentials.forEach(({username,password})=>{
     it('Login Page Fail-Smoke',async()=>
     {
+        //to run the test two times, u can use this.retries(2)
+        //after running three times(1+2) it will report failure
+        //with retry function you have to use function in it block if u are writing retries here
+        //or in describe block if u are writing retries statement there, do not user ()=> fat function.
         await browser.url("/loginpagePractise/")
         await loginPage.Login(username,password)
         

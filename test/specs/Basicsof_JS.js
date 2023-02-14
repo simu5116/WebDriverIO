@@ -42,3 +42,21 @@ let mappedarray=evennumbers.map(score=>score*3)//performs operation on every ele
 //why do we need n number of wdio config file
 //IN QA env also, we have diff configuartion, like baseURL will be diff like UAT SIT so everytime we cant come and change right
 //maybe u want to run test in parallel in SIT but not in UAT
+
+//==============================
+//in package.json
+// //"scripts": {
+//     "test": "echo \"Error: no test specified\" && exit 1",
+//     "wdio": "wdio run ./wdio.conf.js",
+//     "CreditCardTests" : "npx wdio run ./wdio.conf.js --suite CreditCard",
+//     "QARegression" : "npx wdio run ./wdio.conf.js"
+//   },
+
+//you can make ur own scripts and run by
+//npm run CreditCardTests
+
+//===================
+//allure will give us xml result for each spec file
+//we will convert that xml to html by doing some steps mentioned in last section videos, allure reports capture screenshots at failure
+//npm run GenerateReports
+//"GenerateReports": "allure generate allure-results --clean && allure open"

@@ -5,7 +5,7 @@ const wdioConf = require('./wdio.conf.js')
 
 exports.config=merge(wdioConf.config,{
 
-    baseUrl : 'https://rahulshettyacademyUAT.com ',
+    baseUrl : 'https://rahulshettyacademyUAT.com',
     waitForTimeOut : 5000,
     //run with npx wdio run ./wdio.uat.conf.js
     mochaOpts: {

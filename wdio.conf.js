@@ -81,7 +81,7 @@ exports.config = {
         'goog:chromeOptions': {
             // to run chrome headless the following flags are required
             // (see https://developers.google.com/web/updates/2017/04/headless-chrome)
-             args: ['--headless', '--disable-gpu'],
+            // args: ['--headless', '--disable-gpu'],
             }
 
     },
@@ -94,9 +94,9 @@ exports.config = {
         // 5 instance gets started at a time.
         maxInstances: 5,
         browserName: 'firefox',
-        specs: [
-            'test/ffOnly/*'
-        ],
+        // specs: [
+        //     'test/ffOnly/*'
+        // ],
         'moz:firefoxOptions': {
           // flag to activate Firefox headless mode (see https://github.com/mozilla/geckodriver/blob/master/README.md#firefox-capabilities for more details about moz:firefoxOptions)
           // args: ['-headless']
@@ -117,6 +117,7 @@ exports.config = {
     //
     // Level of logging verbosity: trace | debug | info | warn | error | silent
     logLevel: 'info',
+    
     //
     // Set specific log levels per logger
     // loggers:
@@ -180,6 +181,11 @@ exports.config = {
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
     reporters: ['spec'],
+    //place this allure reporter after this reporter
+    reporters: [['allure', {
+        outputDir: 'allure-results',
+        disableWebdriverScreenshotsReporting: false,
+    }]],
 
 
     
@@ -284,8 +290,11 @@ exports.config = {
      * @param {Boolean} result.passed    true if test has passed, otherwise false
      * @param {Object}  result.retries   informations to spec related retries, e.g. `{ attempts: 0, limit: 0 }`
      */
-    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-    // },
+    afterTest: async function(test, context, { error, result, duration, passed, retries }) {
+        if (error) {
+            await browser.takeScreenshot();
+          }
+    },
 
 
     /**
