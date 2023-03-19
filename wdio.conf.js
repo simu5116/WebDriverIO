@@ -73,6 +73,7 @@ exports.config = {
         //
         browserName: 'chrome',
         acceptInsecureCerts: true,
+        //It will accept insecure Certificates (TLS certificates of the website), if the value is false then it will give erroe if website is not protected.
         // If outputDir is provided WebdriverIO can capture driver session logs
         // it is possible to configure which logTypes to include/exclude.
         // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -135,6 +136,8 @@ exports.config = {
     //
     // If you only want to run your tests until a specific amount of tests have failed use
     // bail (default is 0 - don't bail, run all tests).
+    //IMPORTANT
+    //Suppose bail is 5, so the webdriver will stop executing after 5 tests are failed, it is helpful to stp the build some amount of test are failed
     bail: 0,
     //suppose bail:3, whenever 3 failures are encountered during running of your testcases, execution will stop
     //
@@ -158,7 +161,7 @@ exports.config = {
     // Services take over a specific job you don't want to take care of. They enhance
     // your test setup with almost no effort. Unlike plugins, they don't add new
     // commands. Instead, they hook themselves up into the test process.
-    services: ['chromedriver'],
+    //services: ['chromedriver'],
     
     // Framework you want to run your specs with.
     // The following are supported: Mocha, Jasmine, and Cucumber

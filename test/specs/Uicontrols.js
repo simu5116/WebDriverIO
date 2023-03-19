@@ -6,8 +6,8 @@ describe('UI Controls', async()=>
         //change in spec file in wdio config to Uicontrols.js
         await browser.url("https://rahulshettyacademy.com/loginpagePractise/")
         expect(browser).toHaveTitleContaining('Rahul Shetty Academy')
-      await $("#username").setValue("rahulshettyacademy")
-       await $("//input[@type='password']").setValue("learning")
+        await $("#username").setValue("rahulshettyacademy")
+        await $("//input[@type='password']").setValue("learning")
        /* const radiobutton=await $$(".customradio")//return all matching elements(like an array)
         console.log("radiobutton------"+radiobutton[1])
         //the below example is of chaining locators , when we have parent class but in chold there is only tag no class so we can user below approach

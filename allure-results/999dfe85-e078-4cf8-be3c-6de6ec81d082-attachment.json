@@ -1,0 +1,21 @@
+{
+  "id": {
+    "sessionId": "f6c7f657-3aaa-4b83-8d59-84ab85b59c27",
+    "elementId": "ELEMENT-30",
+    "element-6066-11e4-a52e-4f735466cecf": "ELEMENT-30",
+    "selector": "[id='courses-iframe']",
+    "parent": {
+      "sessionId": "f6c7f657-3aaa-4b83-8d59-84ab85b59c27",
+      "capabilities": {
+        "browserName": "chrome",
+        "browserVersion": "111.0.0.0",
+        "platformName": "darwin",
+        "platformVersion": "21.6.0",
+        "goog:chromeOptions": {
+          "debuggerAddress": "127.0.0.1:50905"
+        }
+      }
+    },
+    "isReactElement": false
+  }
+}
